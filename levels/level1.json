@@ -2,8 +2,12 @@
 	"numsquares": 9,
 	"squares": [
 		{
+			"id": 0,
+			"value": 0
+		},
+		{
 			"id": 1,
-			"value": "start"
+			"value": 1
 		},
 		{
 			"id": 2,
@@ -31,11 +35,7 @@
 		},
 		{
 			"id": 8,
-			"value": 1
-		},
-		{
-			"id": 9,
-			"value": "end"
+			"value": 0
 		}
 
 	],
