@@ -24,11 +24,8 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
 	<Board numsquares={data.numsquares}
-		square_values={data.square_values}
-		onPressSquare={this.onPressSquare.bind(this)}
-		start_square={data.start_square}
-		end_square={data.end_square}>
-	</Board>
+		squares={data.squares}
+		onPressSquare={this.onPressSquare.bind(this)}/>
 
 	<Text>{this.state.movesLeft}</Text>
       </View>

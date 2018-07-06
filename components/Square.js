@@ -2,10 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 export default class Square extends React.Component {
-  constructor() {
-	super()
+  constructor(props) {
+	super(props)
 	this.state = {
-		press_status: false
+		press_status: false,
+		pk: this.props.pk,
+		value: this.props.value
 	}
   }
   Press() {

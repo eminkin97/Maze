@@ -7,9 +7,12 @@ export default class Board extends React.Component {
   render() {
     // repeats squares until we have the amount necessary
     var squareList = []
-    for (var i = 0; i <= this.props.numsquares; i++) {
-	squareList.push(<Square key={i} value={this.props.square_values[i]}
-		 onPressSquare={this.props.onPressSquare.bind(this)}></Square>)
+
+    for (var i = 0; i < this.props.numsquares; i++) {
+	squareList.push(<Square key={this.props.squares[i].id}
+		pk={this.props.squares[i].id}
+		value={this.props.squares[i].value}
+		onPressSquare={this.props.onPressSquare.bind(this)}/>)
     }
 
     return (
