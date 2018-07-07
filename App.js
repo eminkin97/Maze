@@ -12,10 +12,11 @@ export default class App extends React.Component {
 		movesLeft: data.total_moves,
 	}
   }
-  onPressSquare() {
-	if (this.state.movesLeft != 0) {
+  onPressSquare(value) {
+	// when square is pressed decrease the amount of moves left by the value of the square
+	if (this.state.movesLeft > 0) {
 		this.setState({
-			movesLeft: this.state.movesLeft - 1
+			movesLeft: this.state.movesLeft - value
 		})
 	}
 	console.log(this.state.movesLeft)

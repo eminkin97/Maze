@@ -10,23 +10,40 @@ export default class Square extends React.Component {
 		value: this.props.value
 	}
   }
+  componentDidMount() {
+	if (this.props.start) {
+		//this square is the start_square
+		console.log("oink")
+		this.Press()
+	}
+  }
   Press() {
-	if (!this.state.press_status) {
+	console.log("Pressed square id: " + this.state.pk)
+	if (this.props.start) {
+		this.setState({
+			press_status: true
+		});
+
+		this.props.squarePressOk(this.state.pk, true)
+
+	} else if (!this.state.press_status && this.props.squarePressOk(this.state.pk, false)) {
 		// Called when user presses the square
 		// Change color of Square
-		console.log("Square was pressed!")
-		console.log(this.props.value)
+		// check to see if a neighbor of this square has been pressed
+		// if neighbor square has been pressed then we're all good to go
+
 		this.setState({
 			press_status: true
 		});
 
 		//call function that updates how many moves are left
-		this.props.onPressSquare()
+		this.props.onPressSquare(this.state.value)
 	}
   }
   render() {
     return (
       <TouchableOpacity style={[styles.container, this.state.press_status ? styles.pressed : styles.unpressed]} onPress={this.Press.bind(this)}>
+	<Text>{this.state.value}</Text>
       </TouchableOpacity>
     );
   }
@@ -38,7 +55,9 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100, 
     borderWidth: 0.5,
-    borderColor: 'black'
+    borderColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   unpressed: {
     backgroundColor: 'orange'
