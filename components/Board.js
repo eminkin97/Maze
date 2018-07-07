@@ -20,6 +20,11 @@ export default class Board extends React.Component {
 	return true
     }
 
+    //if there are no more moves left, cannot click square
+    if (this.props.movesLeft <= 0) {
+	return false
+    }
+
     console.log("pressed squares ids: " + this.state.pressed_squares_id)
 
     let row_column_length = Math.sqrt(this.props.numsquares)

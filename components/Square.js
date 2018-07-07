@@ -37,7 +37,12 @@ export default class Square extends React.Component {
 		});
 
 		//call function that updates how many moves are left
-		this.props.onPressSquare(this.state.value)
+		//if the square is the end square then this ends the round
+		if (this.props.end) {
+			this.props.onPressSquare(this.state.value, true)
+		} else {
+			this.props.onPressSquare(this.state.value, false)
+		}
 	}
   }
   render() {
