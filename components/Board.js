@@ -75,6 +75,7 @@ export default class Board extends React.Component {
   render() {
     // repeats squares until we have the amount necessary
     var squareList = []
+    let row_column_length = Math.sqrt(this.props.numsquares)
 
     for (var i = 0; i < this.props.numsquares; i++) {
 	squareList.push(<Square key={this.props.squares[i].id}
@@ -82,6 +83,7 @@ export default class Board extends React.Component {
 		value={this.props.squares[i].value}
 		start={this.props.squares[i].start}
 		end={this.props.squares[i].end}
+		width_height={350/row_column_length}
 		squarePressOk={this.squarePressOk.bind(this)}
 		onPressSquare={this.props.onPressSquare.bind(this)}/>)
     }
@@ -100,8 +102,8 @@ const styles = StyleSheet.create({
     flex: 0,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    margin: 50,
-    width: 300,
-    height: 300 
+    marginTop: 50,
+    width: 350,
+    height: 350 
   },
 });

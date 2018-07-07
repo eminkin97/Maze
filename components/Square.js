@@ -47,7 +47,9 @@ export default class Square extends React.Component {
   }
   render() {
     return (
-      <TouchableOpacity style={[styles.container, this.state.press_status ? styles.pressed : styles.unpressed]} onPress={this.Press.bind(this)}>
+      <TouchableOpacity style={[{width: this.props.width_height, height: this.props.width_height}, 
+		styles.container, this.state.press_status ? styles.pressed : styles.unpressed]}
+		onPress={this.Press.bind(this)}>
 	<Text>{this.state.value}</Text>
       </TouchableOpacity>
     );
@@ -57,8 +59,6 @@ export default class Square extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 0,
-    width: 100,
-    height: 100, 
     borderWidth: 0.5,
     borderColor: 'black',
     justifyContent: 'center',
