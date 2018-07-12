@@ -2,11 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View, Modal, TouchableHighlight } from 'react-native';
 
 import Board from './Board.js';
-import data from '../levels/level1.json';
 
-export default class MainScreen extends React.Component {
-  constructor() {
-	super()
+export default class GameScreen extends React.Component {
+  constructor(props) {
+	super(props)
+	const data = this.props.navigation.getParam('data', 'SET DEFAULT VALUE LATER')
+
 	this.state = {
 		level: 1,
 		movesLeft: data.total_moves,
@@ -23,8 +24,7 @@ export default class MainScreen extends React.Component {
 	// goes back to level select screen
 
 	const { navigate } = this.props.navigation;
-	navigate('LevelSelect')
-	console.log("Back button was pressed")
+	navigate('Home')
   }
   onPressSquare(value, isEnd) {
 	// when square is pressed decrease the amount of moves left by the value of the square
@@ -41,6 +41,8 @@ export default class MainScreen extends React.Component {
 	console.log(this.state.movesLeft)
   }
   render() {
+    const data = this.props.navigation.getParam('data', 'SET DEFAULT VALUE LATER')
+
     return (
       <View style={styles.container}>
       	<Modal

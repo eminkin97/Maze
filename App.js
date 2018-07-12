@@ -1,11 +1,11 @@
 import { createStackNavigator } from 'react-navigation';
 
-import MainScreen from './components/Main.js'
+import GameScreen from './components/Main.js'
 import LevelSelect from './components/LevelSelect.js'
 
 const App = createStackNavigator({
-  Main: { screen: MainScreen },
-  LevelSelect: { screen: LevelSelect }
+  Home: { screen: LevelSelect },
+  Game: { screen: GameScreen }
 },
 {
   headerMode: 'none',

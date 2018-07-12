@@ -1,0 +1,102 @@
+{
+	"numsquares": 16,
+	"squares": [
+		{
+			"id": 0,
+			"value": 0,
+			"start": false,
+			"end": true
+		},
+		{
+			"id": 1,
+			"value": 1,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 2,
+			"value": 1,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 3,
+			"value": 1,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 4,
+			"value": 1,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 5,
+			"value": 1,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 6,
+			"value": 1,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 7,
+			"value": 1,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 8,
+			"value": 0,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 9,
+			"value": 0,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 10,
+			"value": 0,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 11,
+			"value": 0,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 12,
+			"value": 0,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 13,
+			"value": 0,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 14,
+			"value": 0,
+			"start": false,
+			"end": false
+		},
+		{
+			"id": 15,
+			"value": 0,
+			"start": true,
+			"end": false
+		}
+	],
+	"total_moves": 6
+}
