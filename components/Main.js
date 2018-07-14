@@ -4,12 +4,14 @@ import { StyleSheet, Text, View, Modal, TouchableHighlight } from 'react-native'
 import Board from './Board.js';
 
 export default class GameScreen extends React.Component {
+  board = null;
+  data = null;
+
   constructor(props) {
 	super(props)
-	const data = this.props.navigation.getParam('data', 'SET DEFAULT VALUE LATER')
+	data = this.props.navigation.getParam('data', 'SET DEFAULT VALUE LATER')
 
 	this.state = {
-		level: 1,
 		movesLeft: data.total_moves,
 		end_message_visible: false
 	}
@@ -19,6 +21,19 @@ export default class GameScreen extends React.Component {
 	this.setState({
 		end_message_visible: false
 	})
+  }
+  resetLevel() {
+	// reset the level, clear the selected squares
+	const data = this.props.navigation.getParam('data', 'SET DEFAULT VALUE LATER')
+
+	this.setState({
+		movesLeft: data.total_moves,
+		end_message_visible: false
+	});
+
+	//call function to reset state in board
+	board.resetLevel();
+
   }
   backToLevelSelect() {
 	// goes back to level select screen
@@ -41,8 +56,6 @@ export default class GameScreen extends React.Component {
 	console.log(this.state.movesLeft)
   }
   render() {
-    const data = this.props.navigation.getParam('data', 'SET DEFAULT VALUE LATER')
-
     return (
       <View style={styles.container}>
       	<Modal
@@ -54,7 +67,7 @@ export default class GameScreen extends React.Component {
 	  		<TouchableHighlight style={styles.popup_btn} onPress={() => this.closeModal()}>
 				<Text>Close</Text>
 			</TouchableHighlight>
-			<TouchableHighlight style={styles.popup_btn} onPress={() => this.closeModal()}>
+			<TouchableHighlight style={styles.popup_btn} onPress={() => this.resetLevel()}>
 				<Text>Replay</Text>
 			</TouchableHighlight>
 		</View>
@@ -63,6 +76,7 @@ export default class GameScreen extends React.Component {
 	<Board numsquares={data.numsquares}
 		squares={data.squares}
 		movesLeft={this.state.movesLeft}
+		ref={(c) => board = c}
 		onPressSquare={this.onPressSquare.bind(this)}/>
 
 	<Text>{this.state.movesLeft}</Text>

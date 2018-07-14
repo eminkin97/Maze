@@ -5,7 +5,6 @@ export default class Square extends React.Component {
   constructor(props) {
 	super(props)
 	this.state = {
-		press_status: false,
 		pk: this.props.pk,
 		value: this.props.value
 	}
@@ -13,17 +12,12 @@ export default class Square extends React.Component {
   componentDidMount() {
 	if (this.props.start) {
 		//this square is the start_square
-		console.log("oink")
 		this.Press()
 	}
   }
   Press() {
 	console.log("Pressed square id: " + this.state.pk)
 	if (this.props.start) {
-		this.setState({
-			press_status: true
-		});
-
 		this.props.squarePressOk(this.state.pk, true)
 
 	} else if (!this.state.press_status && this.props.squarePressOk(this.state.pk, false)) {
@@ -31,10 +25,6 @@ export default class Square extends React.Component {
 		// Change color of Square
 		// check to see if a neighbor of this square has been pressed
 		// if neighbor square has been pressed then we're all good to go
-
-		this.setState({
-			press_status: true
-		});
 
 		//call function that updates how many moves are left
 		//if the square is the end square then this ends the round
@@ -45,10 +35,18 @@ export default class Square extends React.Component {
 		}
 	}
   }
+  getPressStatus() {
+	// check if this square has been pressed
+	if (this.props.pressed_squares_id.indexOf(this.state.pk) != -1) {
+		return true;
+	} else {
+		return false;
+	}
+  }
   render() {
     return (
       <TouchableOpacity style={[{width: this.props.width_height, height: this.props.width_height}, 
-		styles.container, this.state.press_status ? styles.pressed : styles.unpressed]}
+		styles.container, this.getPressStatus() ? styles.pressed : styles.unpressed]}
 		onPress={this.Press.bind(this)}>
 	<Text>{this.state.value}</Text>
       </TouchableOpacity>

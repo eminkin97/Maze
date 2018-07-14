@@ -4,11 +4,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import Square from './Square.js';
 
 export default class Board extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
 	pressed_squares_id: []		//array contains ids of squares that have been pressed
     }
+  }
+  resetLevel() {
+	// reset the board when the replay button is pressed
+	this.setState({
+		pressed_squares_id: [this.state.pressed_squares_id[0]]
+        });
   }
   squarePressOk(id, isStartSquare) {
     // this function checks to see if the square pressed has neighbors that have been pressed
@@ -84,6 +90,7 @@ export default class Board extends React.Component {
 		start={this.props.squares[i].start}
 		end={this.props.squares[i].end}
 		width_height={350/row_column_length}
+		pressed_squares_id={this.state.pressed_squares_id}
 		squarePressOk={this.squarePressOk.bind(this)}
 		onPressSquare={this.props.onPressSquare.bind(this)}/>)
     }
