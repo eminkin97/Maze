@@ -29,7 +29,7 @@ export default class LevelSelect extends React.Component {
 			key={levels[i].num}
 			onPress={() => this.levelClick(levels[i].data)}
 			style={styles.level_box}>
-				<Text>{levels[i].num}</Text>
+				<Text style={styles.text}>{levels[i].num}</Text>
 			</TouchableHighlight>)
     }
 
@@ -56,7 +56,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginVertical: 10,
-    borderRadius: 10
+    borderRadius: 10,
+    borderColor: '#003300',
+    borderWidth: 3,
+  },
+  text: {
+    fontSize: 40,
+    fontWeight: 'bold',
+    color: '#003300'
   }
-
 });

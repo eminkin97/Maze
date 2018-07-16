@@ -111,6 +111,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     marginTop: 50,
     width: 350,
-    height: 350 
+    height: 350, 
   },
 });

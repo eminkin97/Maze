@@ -2,14 +2,75 @@ import sys
 import json
 import math
 
+class Heap:
+	def __init__(self, arr):
+		self.arr = arr
+
+	def buildHeap(self):
+		i = len(self.arr)//2 
+		while (i >= 0):
+			self.siftDown(i)
+			i = i - 1
+
+	def siftDown(self, i):
+		left_child = 2 * i
+		right_child = 2 * i + 1
+
+		if (left_child >= len(self.arr)):
+			#No children so can't sift down any more
+			return
+		elif (right_child >= len(self.arr)):
+			#No right child so compare with left child and if left child is smaller than swap
+			if self.arr[left_child].dist < self.arr[i].dist:
+				temp = self.arr[i]
+				self.arr[i] = self.arr[left_child]
+				self.arr[left_child] = temp
+		else:
+			#both children exist
+			min_of_children = min(self.arr[i].dist, self.arr[left_child].dist, self.arr[right_child].dist)
+
+			if (min_of_children == self.arr[left_child].dist):
+				#left child is the smallest
+				temp = self.arr[i]
+				self.arr[i] = self.arr[left_child]
+				self.arr[left_child] = temp
+				self.siftDown(left_child)
+			elif (min_of_children == self.arr[right_child].dist):
+				#right child is the smallest
+				temp = self.arr[i]
+				self.arr[i] = self.arr[right_child]
+				self.arr[right_child] = temp
+				self.siftDown(right_child)
+
+
+	def printHeap(self):
+		for x in self.arr:
+			print("id: %d, dist: %d" % (x.id, x.dist))
+
 class Node:
-	def __init__(self, id, value, neighbors):
+	def __init__(self, id, value, neighbors, start):
 		self.id = id
 		self.value = value	#value of the square
 		self.neighbors = neighbors	#id of the neighbors
+		self.dist = 10000
+		self.start = start	#whether or not this node is start node or not
 
+"""
+Run shortest path algorithm
+"""
 def calculate(node_list):
-	#run shortest path algorithm
+	#find start node
+	for x in node_list:
+		if (x.start):
+			start_node = x
+
+	print(start_node.id)
+	start_node.dist = 0
+
+	#build heap first
+	heap = Heap(node_list)
+	heap.buildHeap()
+	heap.printHeap()
 
 """
 reads the data from JSON file
@@ -37,7 +98,7 @@ def createNodes(squares, num_squares):
 
 	#go through all the dicts and create the nodes
 	for x in squares:
-		new_node = Node(x["id"], x["value"], determineNeighbors(x, squares, row_column_length, num_squares))
+		new_node = Node(x["id"], x["value"], determineNeighbors(x, squares, row_column_length, num_squares), x["start"])
 		node_list.append(new_node)
 
 	return node_list
