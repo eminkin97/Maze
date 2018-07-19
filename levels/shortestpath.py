@@ -52,7 +52,7 @@ class Heap:
 	def bubbleUp(self, i):
 		parent = (i - 1) // 2	#get index of parent
 
-		if (parent >= 0 and self.arr[i] < self.arr[parent]):
+		if (parent >= 0 and self.arr[i].dist < self.arr[parent].dist):
 			#swap parent and child
 			temp = self.arr[i]
 			self.arr[i] = self.arr[parent]
@@ -154,7 +154,7 @@ num_squares must be a square value e.g 25, 36
 """
 def readLevelData():
 	#open file and load data
-	with open('level1.json') as f:
+	with open('level2.json') as f:
 		data = json.load(f)
 
 	squares = data["squares"]

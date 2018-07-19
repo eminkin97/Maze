@@ -3,7 +3,7 @@
 	"squares": [
 		{
 			"id": 0,
-			"value": 0,
+			"value": 1,
 			"start": false,
 			"end": true
 		},
@@ -51,43 +51,43 @@
 		},
 		{
 			"id": 8,
-			"value": 0,
+			"value": 1,
 			"start": false,
 			"end": false
 		},
 		{
 			"id": 9,
-			"value": 0,
+			"value": 1,
 			"start": false,
 			"end": false
 		},
 		{
 			"id": 10,
-			"value": 0,
+			"value": 1,
 			"start": false,
 			"end": false
 		},
 		{
 			"id": 11,
-			"value": 0,
+			"value": 1,
 			"start": false,
 			"end": false
 		},
 		{
 			"id": 12,
-			"value": 0,
+			"value": 1,
 			"start": false,
 			"end": false
 		},
 		{
 			"id": 13,
-			"value": 0,
+			"value": 1,
 			"start": false,
 			"end": false
 		},
 		{
 			"id": 14,
-			"value": 0,
+			"value": 1,
 			"start": false,
 			"end": false
 		},

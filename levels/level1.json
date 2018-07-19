@@ -3,7 +3,7 @@
 	"squares": [
 		{
 			"id": 0,
-			"value": 0,
+			"value": 1,
 			"start": false,
 			"end": true
 		},
