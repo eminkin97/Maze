@@ -1,10 +1,12 @@
 import sys
 import json
 import math
+import time
 
 class Heap:
-	def __init__(self, arr):
+	def __init__(self, arr, num):
 		self.arr = arr
+		self.currlength = num
 
 	def buildHeap(self):
 		i = len(self.arr)//2 
@@ -12,14 +14,17 @@ class Heap:
 			self.siftDown(i)
 			i = i - 1
 
+	"""
+	siftDown in heap. i is the index of the element to siftDown
+	"""
 	def siftDown(self, i):
-		left_child = 2 * i
-		right_child = 2 * i + 1
+		left_child = 2 * i + 1
+		right_child = 2 * i + 2
 
-		if (left_child >= len(self.arr)):
+		if (left_child >= self.currlength):
 			#No children so can't sift down any more
 			return
-		elif (right_child >= len(self.arr)):
+		elif (right_child >= self.currlength):
 			#No right child so compare with left child and if left child is smaller than swap
 			if self.arr[left_child].dist < self.arr[i].dist:
 				temp = self.arr[i]
@@ -41,11 +46,51 @@ class Heap:
 				self.arr[i] = self.arr[right_child]
 				self.arr[right_child] = temp
 				self.siftDown(right_child)
+	"""
+	bubbleUp in heap. i is the index of the element to bubbleUp
+	"""
+	def bubbleUp(self, i):
+		parent = (i - 1) // 2	#get index of parent
 
+		if (parent >= 0 and self.arr[i] < self.arr[parent]):
+			#swap parent and child
+			temp = self.arr[i]
+			self.arr[i] = self.arr[parent]
+			self.arr[parent] = temp
+
+			self.bubbleUp(parent)
+		
+
+	"""
+	decrease distance of one of the nodes. Passes id of node to decrease value
+	and of value to decrease to
+	"""
+	def decreaseKey(self, id, new_val):
+		i = 0
+		while (i < self.currlength):
+			if (self.arr[i].id == id):
+				self.arr[i].dist = new_val
+				self.bubbleUp(i)
+				break
+			i = i + 1
+		
 
 	def printHeap(self):
 		for x in self.arr:
 			print("id: %d, dist: %d" % (x.id, x.dist))
+
+	"""
+	Remove the min element of the heap
+	"""
+	def pop(self):
+		retval = self.arr[0]
+		temp = self.arr[-1]	#save last element
+		self.arr.pop(-1)	#remove last element
+		self.arr[0] = temp
+		self.currlength = self.currlength - 1
+		self.siftDown(0)	#sift down
+
+		return retval
 
 class Node:
 	def __init__(self, id, value, neighbors, start):
@@ -58,19 +103,27 @@ class Node:
 """
 Run shortest path algorithm
 """
-def calculate(node_list):
+def calculate(node_list, num_squares):
 	#find start node
 	for x in node_list:
 		if (x.start):
 			start_node = x
 
-	print(start_node.id)
 	start_node.dist = 0
 
 	#build heap first
-	heap = Heap(node_list)
+	heap = Heap(node_list, num_squares)
 	heap.buildHeap()
-	heap.printHeap()
+
+	#run djikstra's shortest path algo
+	finished_nodes = []		#where we put nodes that have been popped
+
+	while (heap.currlength > 0):
+		u = heap.pop()		#return node with smallest distance
+		finished_nodes.append(u)
+
+		#for all neighbors of u
+		
 
 """
 reads the data from JSON file
@@ -170,4 +223,4 @@ def getSquareById(id, squares, num_squares):
 if __name__ == "__main__":
 	[squares, num_squares] = readLevelData()
 	node_list = createNodes(squares, num_squares)
-	calculate(node_list)
+	calculate(node_list, num_squares)
