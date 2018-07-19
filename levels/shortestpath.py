@@ -65,14 +65,9 @@ class Heap:
 	decrease distance of one of the nodes. Passes id of node to decrease value
 	and of value to decrease to
 	"""
-	def decreaseKey(self, id, new_val):
-		i = 0
-		while (i < self.currlength):
-			if (self.arr[i].id == id):
-				self.arr[i].dist = new_val
-				self.bubbleUp(i)
-				break
-			i = i + 1
+	def decreaseKey(self, index, new_val):
+		self.arr[index].dist = new_val
+		self.bubbleUp(index)
 		
 
 	def printHeap(self):
@@ -83,14 +78,31 @@ class Heap:
 	Remove the min element of the heap
 	"""
 	def pop(self):
-		retval = self.arr[0]
-		temp = self.arr[-1]	#save last element
-		self.arr.pop(-1)	#remove last element
-		self.arr[0] = temp
-		self.currlength = self.currlength - 1
-		self.siftDown(0)	#sift down
+		if (self.currlength == 1):
+			#remove last element
+			self.currlength = self.currlength - 1
+			return self.arr.pop()
+		else:
+			retval = self.arr[0]
+			temp = self.arr[-1]	#save last element
+			self.arr.pop(-1)	#remove last element
+			self.arr[0] = temp
+			self.currlength = self.currlength - 1
+			self.siftDown(0)	#sift down
 
-		return retval
+			return retval
+
+	"""
+	Get node index in heap by its id
+	"""
+	def getIndexById(self, id):
+		i = 0
+		while (i < self.currlength):
+			if (self.arr[i].id == id):
+				return i
+			i = i + 1	
+
+		return -1
 
 class Node:
 	def __init__(self, id, value, neighbors, start):
@@ -123,11 +135,20 @@ def calculate(node_list, num_squares):
 		finished_nodes.append(u)
 
 		#for all neighbors of u
+		for x in u.neighbors:
+			index = heap.getIndexById(x)
+			if (index != -1):
+				val = u.dist + heap.arr[index].value
+
+				if (val < heap.arr[index].dist):
+					heap.decreaseKey(index, val)
+		
+
+	return finished_nodes
 		
 
 """
 reads the data from JSON file
-
 Returns objects that represent the squares on the board
 num_squares must be a square value e.g 25, 36
 """
@@ -223,4 +244,7 @@ def getSquareById(id, squares, num_squares):
 if __name__ == "__main__":
 	[squares, num_squares] = readLevelData()
 	node_list = createNodes(squares, num_squares)
-	calculate(node_list, num_squares)
+	final_list = calculate(node_list, num_squares)
+
+	for i in final_list:
+		print("id: %d, dist: %d" % (i.id, i.dist))
