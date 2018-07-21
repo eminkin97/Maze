@@ -105,12 +105,13 @@ class Heap:
 		return -1
 
 class Node:
-	def __init__(self, id, value, neighbors, start):
+	def __init__(self, id, value, neighbors, start, end):
 		self.id = id
 		self.value = value	#value of the square
 		self.neighbors = neighbors	#id of the neighbors
 		self.dist = 10000
 		self.start = start	#whether or not this node is start node or not
+		self.end = end
 
 """
 Run shortest path algorithm
@@ -154,7 +155,8 @@ num_squares must be a square value e.g 25, 36
 """
 def readLevelData():
 	#open file and load data
-	with open('level2.json') as f:
+	filename = input("file to calculate shortest path for: ")
+	with open(filename) as f:
 		data = json.load(f)
 
 	squares = data["squares"]
@@ -172,7 +174,7 @@ def createNodes(squares, num_squares):
 
 	#go through all the dicts and create the nodes
 	for x in squares:
-		new_node = Node(x["id"], x["value"], determineNeighbors(x, squares, row_column_length, num_squares), x["start"])
+		new_node = Node(x["id"], x["value"], determineNeighbors(x, squares, row_column_length, num_squares), x["start"], x["end"])
 		node_list.append(new_node)
 
 	return node_list
@@ -248,3 +250,9 @@ if __name__ == "__main__":
 
 	for i in final_list:
 		print("id: %d, dist: %d" % (i.id, i.dist))
+
+	print("")
+	print("end squares: ")
+	for i in final_list:
+		if (i.end):
+			print("id: %d, dist: %d" % (i.id, i.dist))
