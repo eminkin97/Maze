@@ -9,7 +9,20 @@ const levels = [
 	{
 		num: 2,
 		data: require('../levels/level2.json')
-	}
+	},
+	{
+		num: 3,
+		data: require('../levels/level3.json')
+	},
+	{
+		num: 4,
+		data: require('../levels/level4.json')
+	},
+	{
+		num: 5,
+		data: require('../levels/level5.json')
+	},
+
 ]
 
 export default class LevelSelect extends React.Component {
