@@ -55,11 +55,18 @@ export default class Square extends React.Component {
     	);
 
     } else {
+	let value;
+	if (this.props.start) {
+		value = "start";
+	} else {
+		value = this.state.value;
+	}
+
     	return (
       		<TouchableOpacity style={[{width: this.props.width_height, height: this.props.width_height}, 
 			styles.container, this.getPressStatus() ? styles.pressed : styles.unpressed]}
 			onPress={this.Press.bind(this)}>
-		<Text>{this.state.value}</Text>
+		<Text>{ value }</Text>
       		</TouchableOpacity>
     	);
     }

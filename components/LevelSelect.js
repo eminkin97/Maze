@@ -26,10 +26,10 @@ const levels = [
 ]
 
 export default class LevelSelect extends React.Component {
-  levelClick(data) {
+  levelClick(num) {
 	// user clicks a level box and we navigate to the game screen
 	const { navigate } = this.props.navigation;
-	navigate('Game', { data: data })
+	navigate('Game', { levels: levels, num: num })
 
   }
   render() {
@@ -40,7 +40,7 @@ export default class LevelSelect extends React.Component {
     for (let i = 0; i < levels.length; i++) {
 	levelList.push(<TouchableHighlight
 			key={levels[i].num}
-			onPress={() => this.levelClick(levels[i].data)}
+			onPress={() => this.levelClick(levels[i].num)}
 			style={styles.level_box}>
 				<Text style={styles.text}>{levels[i].num}</Text>
 			</TouchableHighlight>)

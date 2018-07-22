@@ -6,14 +6,23 @@ import Board from './Board.js';
 export default class GameScreen extends React.Component {
   board = null;
   data = null;
+  levels = null;
 
   constructor(props) {
 	super(props)
-	data = this.props.navigation.getParam('data', 'SET DEFAULT VALUE LATER')
+	levels = this.props.navigation.getParam('levels', 'SET DEFAULT VALUE LATER')
+	num = this.props.navigation.getParam('num', 0)
+	
+	for (let i = 0; i < levels.length; i++) {
+		if (levels[i].num == num) {
+			data = levels[i].data
+		}
+	}
 
 	this.state = {
 		movesLeft: data.total_moves,
-		end_message_visible: false
+		end_message_visible: false,
+		level_num: num
 	}
   }
   closeModal() {
@@ -24,8 +33,6 @@ export default class GameScreen extends React.Component {
   }
   resetLevel() {
 	// reset the level, clear the selected squares
-	const data = this.props.navigation.getParam('data', 'SET DEFAULT VALUE LATER')
-
 	this.setState({
 		movesLeft: data.total_moves,
 		end_message_visible: false
@@ -34,6 +41,20 @@ export default class GameScreen extends React.Component {
 	//call function to reset state in board
 	board.resetLevel();
 
+  }
+  nextLevel() {
+	for (let i = 0; i < levels.length; i++) {
+		if (levels[i].num == this.state.level_num + 1) {
+			data = levels[i].data
+		}
+	}
+
+	this.setState({
+		level_num: this.state.level_num + 1
+	});
+
+	this.render()
+	this.resetLevel()
   }
   backToLevelSelect() {
 	// goes back to level select screen
@@ -64,12 +85,16 @@ export default class GameScreen extends React.Component {
 	    onRequestClose={() => console.log("Sorry back button does nothing here")}>
 	  <View style={styles.popup_container}>
 		<View style={styles.popup_box}>
-	  		<TouchableHighlight style={styles.popup_btn} onPress={() => this.closeModal()}>
-				<Text>Close</Text>
+	  		<TouchableHighlight style={styles.popup_btn} onPress={() => this.backToLevelSelect()}>
+				<Text>Back</Text>
 			</TouchableHighlight>
 			<TouchableHighlight style={styles.popup_btn} onPress={() => this.resetLevel()}>
 				<Text>Replay</Text>
 			</TouchableHighlight>
+			<TouchableHighlight style={styles.popup_btn} onPress={() => this.nextLevel()}>
+				<Text>Next</Text>
+			</TouchableHighlight>
+
 		</View>
 	  </View>
       	</Modal>
@@ -79,11 +104,16 @@ export default class GameScreen extends React.Component {
 		ref={(c) => board = c}
 		onPressSquare={this.onPressSquare.bind(this)}/>
 
-	<Text>{this.state.movesLeft}</Text>
+	<Text style={styles.moves_left}>{this.state.movesLeft}</Text>
 
 	<TouchableHighlight style={styles.back_to_level_select} onPress={() => this.backToLevelSelect()}>
 		<Text>Back</Text>
 	</TouchableHighlight>
+
+	<TouchableHighlight style={styles.replay_level_btn} onPress={() => this.resetLevel()}>
+		<Text>Replay</Text>
+	</TouchableHighlight>
+
       </View>
     );
   }
@@ -117,10 +147,10 @@ const styles = StyleSheet.create({
     flex: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 100,
-    height: 100,
+    width: 80,
+    height: 80,
     backgroundColor: 'blue',
-    margin: 20
+    margin: 10
   },
   back_to_level_select: {
     position: 'absolute',
@@ -132,5 +162,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 100,
     height: 50
+  },
+  replay_level_btn: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    backgroundColor: 'blue',
+    flex: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 100,
+    height: 50
+  },
+  moves_left: {
+    margin: 50,
+    fontWeight: 'bold',
+    fontSize: 80,
+    color: '#003300'
   }
 });

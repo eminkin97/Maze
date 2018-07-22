@@ -53,13 +53,18 @@ def generateJsonFile(num_squares, value_range, filename):
 			start_val = False
 
 		if i in end_squares:
+			value = random.randint(0, value_range)
+			if (value == 0):	#end square cant have a value of 0
+				value = value + 1
+
 			end_val = True
 		else:
+			value = random.randint(0, value_range)
 			end_val = False
 
 		new_square = {
 			'id': i,
-			'value': random.randint(0, value_range),
+			'value': value,
 			'start': start_val,
 			'end': end_val
 		}

@@ -12,8 +12,18 @@ export default class Board extends React.Component {
   }
   resetLevel() {
 	// reset the board when the replay button is pressed
+	// find the start square
+	let new_arr = []
+
+	for (let i = 0; i < this.props.numsquares; i++) {
+		if (this.props.squares[i].start) {
+			new_arr.push(this.props.squares[i].id)
+		}
+	}
+
 	this.setState({
-		pressed_squares_id: [this.state.pressed_squares_id[0]]
+		//pressed_squares_id: [this.state.pressed_squares_id[0]]
+		pressed_squares_id: new_arr
         });
   }
   squarePressOk(id, isStartSquare, square_value) {
