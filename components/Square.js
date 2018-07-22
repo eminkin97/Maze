@@ -18,9 +18,9 @@ export default class Square extends React.Component {
   Press() {
 	console.log("Pressed square id: " + this.state.pk)
 	if (this.props.start) {
-		this.props.squarePressOk(this.state.pk, true)
+		this.props.squarePressOk(this.state.pk, true, this.state.value)
 
-	} else if (!this.state.press_status && this.props.squarePressOk(this.state.pk, false)) {
+	} else if (!this.state.press_status && this.props.squarePressOk(this.state.pk, false, this.state.value)) {
 		// Called when user presses the square
 		// Change color of Square
 		// check to see if a neighbor of this square has been pressed
@@ -44,13 +44,25 @@ export default class Square extends React.Component {
 	}
   }
   render() {
-    return (
-      <TouchableOpacity style={[{width: this.props.width_height, height: this.props.width_height}, 
-		styles.container, this.getPressStatus() ? styles.pressed : styles.unpressed]}
-		onPress={this.Press.bind(this)}>
-	<Text>{this.state.value}</Text>
-      </TouchableOpacity>
-    );
+    if (this.props.end) {
+	// different style for end square
+	return (
+      		<TouchableOpacity style={[{width: this.props.width_height, height: this.props.width_height}, 
+			styles.container, this.getPressStatus() ? styles.end_square_pressed : styles.end_square_unpressed]}
+			onPress={this.Press.bind(this)}>
+		<Text style={styles.end_square_text}>{this.state.value}</Text>
+      		</TouchableOpacity>
+    	);
+
+    } else {
+    	return (
+      		<TouchableOpacity style={[{width: this.props.width_height, height: this.props.width_height}, 
+			styles.container, this.getPressStatus() ? styles.pressed : styles.unpressed]}
+			onPress={this.Press.bind(this)}>
+		<Text>{this.state.value}</Text>
+      		</TouchableOpacity>
+    	);
+    }
   }
 }
 
@@ -67,5 +79,14 @@ const styles = StyleSheet.create({
   },
   pressed: {
     backgroundColor: 'yellow'
+  },
+  end_square_pressed: {
+    backgroundColor: 'black'
+  },
+  end_square_unpressed: {
+    backgroundColor: 'gray'
+  },
+  end_square_text: {
+    color: 'white'
   }
 });

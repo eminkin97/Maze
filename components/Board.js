@@ -16,7 +16,7 @@ export default class Board extends React.Component {
 		pressed_squares_id: [this.state.pressed_squares_id[0]]
         });
   }
-  squarePressOk(id, isStartSquare) {
+  squarePressOk(id, isStartSquare, square_value) {
     // this function checks to see if the square pressed has neighbors that have been pressed
     // i.e. is it a valid press
 
@@ -28,6 +28,8 @@ export default class Board extends React.Component {
 
     //if there are no more moves left, cannot click square
     if (this.props.movesLeft <= 0) {
+	return false
+    } else if (this.props.movesLeft - square_value < 0) {
 	return false
     }
 
