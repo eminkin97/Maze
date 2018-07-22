@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly'
   },
   level_box: {
-    backgroundColor: 'green',
+    backgroundColor: '#ff6600',
     flex: 0,
     height: 120,
     width: 80,
