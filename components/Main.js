@@ -48,28 +48,12 @@ export default class GameScreen extends React.Component {
 
 	//call function to reset state in board
 	board.resetLevel(start_square_id);
-
   }
   nextLevel() {
-	for (let i = 0; i < levels.length; i++) {
-		if (levels[i].num == this.state.level_num + 1) {
-			data = levels[i].data
-		}
-	}
-
 	this.setState({
-		level_num: this.state.level_num + 1
+		end_message_visible: false
 	});
-
-	//find start square
-	let start_square_id;
-	for (let i = 0; i < data.numsquares; i++) {
-		if (data.squares[i].start) {
-			start_square_id = data.squares[i].id
-		}
-	}
-
-	this.resetLevel(start_square_id)
+	this.props.navigation.push('Game', { levels: levels, num: this.state.level_num + 1});
   }
   backToLevelSelect() {
 	// goes back to level select screen
