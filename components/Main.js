@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Modal, TouchableHighlight } from 'react-native';
+import { Icon } from 'react-native-elements';
 
 import Board from './Board.js';
 
@@ -83,17 +84,20 @@ export default class GameScreen extends React.Component {
 	    transparent={true}
 	    onRequestClose={() => console.log("Sorry back button does nothing here")}>
 	  <View style={styles.popup_container}>
-		<View style={styles.popup_box}>
-	  		<TouchableHighlight style={styles.popup_btn} onPress={() => this.backToLevelSelect()}>
-				<Text>Back</Text>
-			</TouchableHighlight>
-			<TouchableHighlight style={styles.popup_btn} onPress={() => this.resetLevel()}>
-				<Text>Replay</Text>
-			</TouchableHighlight>
-			<TouchableHighlight style={styles.popup_btn} onPress={() => this.nextLevel()}>
-				<Text>Next</Text>
-			</TouchableHighlight>
+		<View style={styles.popup_box_container}>
+			<Text style={styles.popup_box_text}>Level Completed!</Text>
+			<View style={styles.popup_box}>
+	  			<TouchableHighlight style={styles.popup_btn} onPress={() => this.backToLevelSelect()}>
+					<Icon name='arrow-left-bold' type='material-community' size={60} />
+				</TouchableHighlight>
+				<TouchableHighlight style={styles.popup_btn} onPress={() => this.resetLevel()}>
+					<Icon name='replay' type='material-community' size={70} />
+				</TouchableHighlight>
+				<TouchableHighlight style={styles.popup_btn} onPress={() => this.nextLevel()}>
+					<Icon name='menu-right' type='material-community' size={80} />
+				</TouchableHighlight>
 
+			</View>
 		</View>
 	  </View>
       	</Modal>
@@ -106,11 +110,11 @@ export default class GameScreen extends React.Component {
 	<Text style={styles.moves_left}>{this.state.movesLeft}</Text>
 
 	<TouchableHighlight style={styles.back_to_level_select} onPress={() => this.backToLevelSelect()}>
-		<Text>Back</Text>
+		<Icon name='arrow-left-bold' type='material-community' size={55} />
 	</TouchableHighlight>
 
 	<TouchableHighlight style={styles.replay_level_btn} onPress={() => this.resetLevel()}>
-		<Text>Replay</Text>
+		<Icon name='replay' type='material-community' size={45} />
 	</TouchableHighlight>
 
       </View>
@@ -129,18 +133,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
+  popup_box_container: {
+    flex: 0,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#404040',
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 10,
+    width: 300,
+    height: 175,
+  },
   popup_box: {
     flex: 0,
+    alignSelf: 'stretch',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
-    width: 300,
-    height: 150,
-    backgroundColor: 'red',
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius: 10
   },
   popup_btn: {
     flex: 0,
@@ -148,30 +159,45 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 80,
     height: 80,
-    backgroundColor: 'blue',
-    margin: 10
+    backgroundColor: '#e6e6e6',
+    margin: 10,
+    borderWidth: 3,
+    borderRadius: 10
+  },
+  popup_box_text: {
+    fontSize: 25,
+    fontWeight: 'bold',
+    color: '#e6e6e6'
   },
   back_to_level_select: {
     position: 'absolute',
     bottom: 0,
     left: 0,
-    backgroundColor: 'blue',
+    backgroundColor: '#e6e6e6',
     flex: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 100,
-    height: 50
+    width: 70,
+    height: 50,
+    borderWidth: 3,
+    borderBottomWidth: 0,
+    borderLeftWidth: 0,
+    borderTopRightRadius: 10
   },
   replay_level_btn: {
     position: 'absolute',
     bottom: 0,
     right: 0,
-    backgroundColor: 'blue',
+    backgroundColor: '#e6e6e6',
     flex: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    width: 100,
-    height: 50
+    width: 70,
+    height: 50,
+    borderWidth: 3,
+    borderBottomWidth: 0,
+    borderRightWidth: 0,
+    borderTopLeftRadius: 10
   },
   moves_left: {
     margin: 50,
