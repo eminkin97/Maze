@@ -22,7 +22,7 @@ def randomStartEndSquares(num_squares):
 
 	if (num_squares == 25):
 		num_end_squares = 1
-	if (num_squares == 36):
+	elif (num_squares >= 36):
 		num_end_squares = random.randint(1,2)
 
 	i = 0
