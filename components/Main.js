@@ -85,7 +85,7 @@ export default class GameScreen extends React.Component {
 	    onRequestClose={() => console.log("Sorry back button does nothing here")}>
 	  <View style={styles.popup_container}>
 		<View style={styles.popup_box_container}>
-			<Text style={styles.popup_box_text}>Level Completed!</Text>
+			<Text style={styles.popup_box_text}>Level {this.state.level_num} Completed!</Text>
 			<View style={styles.popup_box}>
 	  			<TouchableHighlight style={styles.popup_btn} onPress={() => this.backToLevelSelect()}>
 					<Icon name='arrow-left-bold' type='material-community' size={60} />

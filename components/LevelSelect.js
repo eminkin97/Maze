@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableHighlight } from 'react-native';
 
 const levels = [
 	{
@@ -222,16 +222,16 @@ export default class LevelSelect extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
 	{ levelList }
-      </View>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0,
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-evenly'
