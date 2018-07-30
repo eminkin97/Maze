@@ -243,16 +243,18 @@ def getSquareById(id, squares, num_squares):
 	return -1
 	
 
-if __name__ == "__main__":
-	[squares, num_squares] = readLevelData()
+"""
+Main function. Takes squares and number of squares and returns int representing shortest path # moves
+"""
+def main(squares, num_squares):
 	node_list = createNodes(squares, num_squares)
 	final_list = calculate(node_list, num_squares)
 
-	for i in final_list:
-		print("id: %d, dist: %d" % (i.id, i.dist))
-
-	print("")
-	print("end squares: ")
+	dists = []
 	for i in final_list:
 		if (i.end):
-			print("id: %d, dist: %d" % (i.id, i.dist))
+			dists.append(i.dist)
+
+	return min(dists)
+
+

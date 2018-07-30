@@ -1,5 +1,6 @@
 import json
 import random
+from shortestpath import main
 
 """
 Passes in number of squares
@@ -9,9 +10,7 @@ def takeInput():
 
 	value_range = input("Please enter max value a square can have: ")
 
-	filename = input("Please enter a file name to write to: ")
-
-	return [int(num_squares), int(value_range), filename]
+	return [int(num_squares), int(value_range)]
 
 """
 Randomly select start and end squares
@@ -72,15 +71,29 @@ def generateJsonFile(num_squares, value_range, filename):
 
 		i = i + 1
 
+	# get shortest path
+	total_moves = main(square_list, num_squares)
+
 	final_json_file = {
 		'numsquares': num_squares,
 		'squares': square_list,
-		'total_moves': 0
+		'total_moves': total_moves
 	}
 
 	with open(filename, 'w') as outfile:
 		json.dump(final_json_file, outfile)
 
+
+"""
+Control function. calls the function that generates the json files
+"""
+def control(num_squares, max_value):
+
+	i = 1
+	while (i <= 50):
+		generateJsonFile(num_squares, max_value, "orange/level" + str(i) + ".json")
+		i = i + 1
+	
 if __name__ == "__main__":
-	[num_squares, value_range, filename] = takeInput()
-	generateJsonFile(num_squares, value_range, filename)
+	[num_squares, max_value] = takeInput()
+	control(num_squares, max_value)

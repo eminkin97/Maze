@@ -60,7 +60,7 @@ export default class GameScreen extends React.Component {
 	// goes back to level select screen
 
 	const { navigate } = this.props.navigation;
-	navigate('Home')
+	navigate('Levels')
   }
   onPressSquare(value, isEnd) {
 	// when square is pressed decrease the amount of moves left by the value of the square
