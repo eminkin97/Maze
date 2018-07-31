@@ -1,6 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableHighlight } from 'react-native';
 
+// import the level data
+import { LEVELS } from './level_library.js';
+
 export default class LevelSelect extends React.Component {
   constructor(props) {
 	super(props)
@@ -14,12 +17,10 @@ export default class LevelSelect extends React.Component {
   }
   levelClick(level_num) {
 	// user clicks a level box and we navigate to the game screen
-	console.log("level clicked")
-	const uri = '../levels/' + this.state.dir + '/level' + level_num + '.json';
-	console.log(uri)
-	console.log("fetch worked")
-	//const { navigate } = this.props.navigation;
-	//navigate('Game', { levels: levels, num: num })
+	let level_data = LEVELS[this.state.dir]
+
+	const { navigate } = this.props.navigation;
+	navigate('Game', { levels: level_data, num: level_num, title: this.state.title, dir: this.state.dir })
 
   }
   render() {
@@ -27,7 +28,7 @@ export default class LevelSelect extends React.Component {
     var levelList = []
 
     // 50 levels in each stage
-    for (let i = 0; i < 50; i++) {
+    for (let i = 1; i <= 50; i++) {
 	levelList.push(<TouchableHighlight
 			key={i}
 			onPress={() => this.levelClick(i)}
@@ -37,14 +38,22 @@ export default class LevelSelect extends React.Component {
     }
 
     return (
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView contentContainerStyle={styles.scroll_container}>
+	<Text style={styles.title}>{ this.state.title }</Text>
+	<View style={styles.container}>
 	{ levelList }
+	</View>
       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  scroll_container: {
+    flex: 0,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   container: {
     flex: 0,
     flexDirection: 'row',
@@ -54,7 +63,7 @@ const styles = StyleSheet.create({
   level_box: {
     backgroundColor: '#ff6600',
     flex: 0,
-    height: 120,
+    height: 80,
     width: 80,
     justifyContent: 'center',
     alignItems: 'center',
@@ -67,5 +76,9 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
     color: '#003300'
+  },
+  title: {
+    fontSize: 50,
+    fontWeight: 'bold'
   }
 });

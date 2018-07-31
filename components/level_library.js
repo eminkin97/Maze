@@ -1,4 +1,4 @@
-const levels = {
+const LEVELS = {
 	orange1: [
 		{
 			num: 1,
@@ -201,5 +201,6 @@ const levels = {
 			data: require('../levels/orange1/level50.json')
 		}
 	]
-
 }
+
+export { LEVELS };

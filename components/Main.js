@@ -58,9 +58,11 @@ export default class GameScreen extends React.Component {
   }
   backToLevelSelect() {
 	// goes back to level select screen
+	let title = this.props.navigation.getParam('title', 'SET DEFAULT VALUE LATER')
+	let dir = this.props.navigation.getParam('dir', 'SET DEFAULT VALUE LATER')
 
 	const { navigate } = this.props.navigation;
-	navigate('Levels')
+	navigate('Levels', { title: title, dir: dir })
   }
   onPressSquare(value, isEnd) {
 	// when square is pressed decrease the amount of moves left by the value of the square

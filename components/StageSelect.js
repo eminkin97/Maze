@@ -8,6 +8,7 @@ export default class StageSelect extends React.Component {
 	console.log(key)
 	let dir;
 	let title;
+	let color;
 
 	// get info for stage selected
 	for (let i = 0; i < level_meta_data.maps.length; i++) {
