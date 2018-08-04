@@ -96,6 +96,7 @@ export default class Board extends React.Component {
 		value={this.props.squares[i].value}
 		start={this.props.squares[i].start}
 		end={this.props.squares[i].end}
+		color={this.props.color}
 		width_height={350/row_column_length}
 		pressed_squares_id={this.state.pressed_squares_id}
 		squarePressOk={this.squarePressOk.bind(this)}

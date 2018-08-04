@@ -46,39 +46,51 @@ export default class Square extends React.Component {
   getBackgroundColor() {
 	// background color depends on value of square
 	let background_color;
-	if (this.state.value == 0) {
-		background_color = styles.unpressed_val_0;
-	} else if (this.state.value == 1) {
-		background_color = styles.unpressed_val_1;
-	} else if (this.state.value == 2) {
-		background_color = styles.unpressed_val_2;
-	} else if (this.state.value == 3) {
-		background_color = styles.unpressed_val_3;
-	} else if (this.state.value == 4) {
-		background_color = styles.unpressed_val_4;
-	} else if (this.state.value == 5) {
-		background_color = styles.unpressed_val_5;
-	} else if (this.state.value == 6) {
-		background_color = styles.unpressed_val_6;
-	} else if (this.state.value == 7) {
-		background_color = styles.unpressed_val_7;
-	} else if (this.state.value == 8) {
-		background_color = styles.unpressed_val_8;
-	} else if (this.state.value == 9) {
-		background_color = styles.unpressed_val_9;
-	} else if (this.state.value == 10) {
-		background_color = styles.unpressed_val_10;
-	} else if (this.state.value == 11) {
-		background_color = styles.unpressed_val_11;
-	} else if (this.state.value == 12) {
-		background_color = styles.unpressed_val_12;
-	} else if (this.state.value == 13) {
-		background_color = styles.unpressed_val_13;
-	} else if (this.state.value == 14) {
-		background_color = styles.unpressed_val_14;
-	} else if (this.state.value == 15) {
-		background_color = styles.unpressed_val_15;
+	let val = this.state.value
+	let color = this.props.color
+
+	if (val >= 95) {
+		background_color = styles["unpressed_val_19_" + color]
+	} else if (val >= 90) {
+		background_color = styles["unpressed_val_18_" + color]
+	} else if (val >= 85) {
+		background_color = styles["unpressed_val_17_" + color]
+	} else if (val >= 80) {
+		background_color = styles["unpressed_val_16_" + color]
+	} else if (val >= 75) {
+		background_color = styles["unpressed_val_15_" + color]
+	} else if (val >= 70) {
+		background_color = styles["unpressed_val_14_" + color]
+	} else if (val >= 65) {
+		background_color = styles["unpressed_val_13_" + color]
+	} else if (val >= 60) {
+		background_color = styles["unpressed_val_12_" + color]
+	} else if (val >= 55) {
+		background_color = styles["unpressed_val_11_" + color]
+	} else if (val >= 50) {
+		background_color = styles["unpressed_val_10_" + color]
+	} else if (val >= 45) {
+		background_color = styles["unpressed_val_9_" + color]
+	} else if (val >= 40) {
+		background_color = styles["unpressed_val_8_" + color]
+	} else if (val >= 35) {
+		background_color = styles["unpressed_val_7_" + color]
+	} else if (val >= 30) {
+		background_color = styles["unpressed_val_6_" + color]
+	} else if (val >= 25) {
+		background_color = styles["unpressed_val_5_" + color]
+	} else if (val >= 20) {
+		background_color = styles["unpressed_val_4_" + color]
+	} else if (val >= 15) {
+		background_color = styles["unpressed_val_3_" + color]
+	} else if (val >= 10) {
+		background_color = styles["unpressed_val_2_" + color]
+	} else if (val >= 5) {
+		background_color = styles["unpressed_val_1_" + color]
+	} else if (val >= 0) {
+		background_color = styles["unpressed_val_0_" + color]
 	}
+
 	return background_color;
   }
   render() {
@@ -121,54 +133,127 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  unpressed_val_0: {
-    backgroundColor: '#fff0e6'
+  unpressed_val_0_orange: {
+    backgroundColor: '#F7CFAA'
   },
-  unpressed_val_1: {
-    backgroundColor: '#ffe0cc'
+  unpressed_val_1_orange: {
+    backgroundColor: '#F5C08D'
   },
-  unpressed_val_2: {
-    backgroundColor: '#ffd1b3'
+  unpressed_val_2_orange: {
+    backgroundColor: '#F5B57A'
   },
-  unpressed_val_3: {
-    backgroundColor: '#ffe0cc'
+  unpressed_val_3_orange: {
+    backgroundColor: '#F3AB67'
   },
-  unpressed_val_4: {
-    backgroundColor: '#ffc299'
+  unpressed_val_4_orange: {
+    backgroundColor: '#F19D4F'
   },
-  unpressed_val_5: {
-    backgroundColor: '#ffb380'
+  unpressed_val_5_orange: {
+    backgroundColor: '#F19640'
   },
-  unpressed_val_6: {
-    backgroundColor: '#ffa366'
+  unpressed_val_6_orange: {
+    backgroundColor: '#F08B2D'
   },
-  unpressed_val_7: {
-    backgroundColor: '#ff944d'
+  unpressed_val_7_orange: {
+    backgroundColor: '#EF8623'
   },
-  unpressed_val_8: {
-    backgroundColor: '#ff8533'
+  unpressed_val_8_orange: {
+    backgroundColor: '#EF811A'
   },
-  unpressed_val_9: {
-    backgroundColor: '#ff751a'
+  unpressed_val_9_orange: {
+    backgroundColor: '#E37611'
   },
-  unpressed_val_10: {
-    backgroundColor: '#ff6600'
+  unpressed_val_10_orange: {
+    backgroundColor: '#DB710F'
   },
-  unpressed_val_11: {
-    backgroundColor: '#e65c00'
+  unpressed_val_11_orange: {
+    backgroundColor: '#CD6A0E'
   },
-  unpressed_val_12: {
-    backgroundColor: '#cc5200'
+  unpressed_val_12_orange: {
+    backgroundColor: '#C4650C'
   },
-  unpressed_val_13: {
-    backgroundColor: '#b34700'
+  unpressed_val_13_orange: {
+    backgroundColor: '#B65E0B'
   },
-  unpressed_val_14: {
-    backgroundColor: '#993d00'
+  unpressed_val_14_orange: {
+    backgroundColor: '#B15B0B'
   },
-  unpressed_val_15: {
-    backgroundColor: '#803300'
+  unpressed_val_15_orange: {
+    backgroundColor: '#A7560A'
   },
+  unpressed_val_16_orange: {
+    backgroundColor: '#9F5108'
+  },
+  unpressed_val_17_orange: {
+    backgroundColor: '#924A06'
+  },
+  unpressed_val_18_orange: {
+    backgroundColor: '#854204'
+  },
+  unpressed_val_19_orange: {
+    backgroundColor: '#7C3D02'
+  },
+  unpressed_val_0_blue: {
+    backgroundColor: '#ABADFB'
+  },
+  unpressed_val_1_blue: {
+    backgroundColor: '#9899FA'
+  },
+  unpressed_val_2_blue: {
+    backgroundColor: '#898BFA'
+  },
+  unpressed_val_3_blue: {
+    backgroundColor: '#7577FA'
+  },
+  unpressed_val_4_blue: {
+    backgroundColor: '#6063FA'
+  },
+  unpressed_val_5_blue: {
+    backgroundColor: '#5558FA'
+  },
+  unpressed_val_6_blue: {
+    backgroundColor: '#4649FB'
+  },
+  unpressed_val_7_blue: {
+    backgroundColor: '#383BF9'
+  },
+  unpressed_val_8_blue: {
+    backgroundColor: '#292CF9'
+  },
+  unpressed_val_9_blue: {
+    backgroundColor: '#1A1DF9'
+  },
+  unpressed_val_10_blue: {
+    backgroundColor: '#0509F9'
+  },
+  unpressed_val_11_blue: {
+    backgroundColor: '#0509E9'
+  },
+  unpressed_val_12_blue: {
+    backgroundColor: '#0509DF'
+  },
+  unpressed_val_13_blue: {
+    backgroundColor: '#0609CF'
+  },
+  unpressed_val_14_blue: {
+    backgroundColor: '#0407BC'
+  },
+  unpressed_val_15_blue: {
+    backgroundColor: '#0407B3'
+  },
+  unpressed_val_16_blue: {
+    backgroundColor: '#0507A3'
+  },
+  unpressed_val_17_blue: {
+    backgroundColor: '#060897'
+  },
+  unpressed_val_18_blue: {
+    backgroundColor: '#050789'
+  },
+  unpressed_val_19_blue: {
+    backgroundColor: '#050779'
+  },
+
   pressed: {
     backgroundColor: 'yellow'
   },

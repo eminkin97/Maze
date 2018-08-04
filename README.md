@@ -1,32 +1,28 @@
-Shortest path Maze Game. Format of square is below:
+Shortest path Maze Game.
 
----------------------------------
--				-
--	0	1	2	-
--				-
--				-
--	3	4	5	-
--				-
--				-
--	6	7	8	-
--				-
--				-
----------------------------------
-
-where 1 is square 1, 2 is square 2, 3 is square 3 etc.
-
-Level breakdown:
+Stage breakdown:
 
 start square and end square are selected randomnly
 
-1-10: 25 squares; 0-5 value range
-10-20: 25 squares; 0-10 value range
-20-30: 25, 36 squares; 0-10 range
-30-40: 25, 36 squares; 0-15 range
-40-50: 25, 36, 49 squares; 0-15 range
+Max value a square can have is 100
 
-25 square boards have 1 exit
-36 square boards have 1-2 exits
+Stages:
+
+Orange 1: 5x5. Value range 1-20. 1 Exit
+Blue 1: 6x6. Value range 1-20. 1 Exit
+Purple 1: 6x6 Value range 1-30. 1 Exit
+Green 1: 7x7 Value range 1-20. Max of 2 exits
+Red 1: 7x7 Value range 1-30. Max of 2 exits
+Brown 1: 7x7 Value range 1-40. Max of 2 exits
+Aqua 1: 7x7 Value range 1-50. Max of 2 exits
+
+Orange 2: 8x8 Value range 1-30. Max of 2 exits
+Blue 2: 8x8 Value range 1-40. Max of 2 exits
+Purple 2: 8x8 Value range 1-50. Max of 2 exits
+Green 2: 8x8 Value range 1-60. Max of 2 exits
+Red 2: 9x9 Value range 1-40. Max of 2 exits
+Brown 2: 9x9 Value range 1-50. Max of 2 exits
+Aqua 2: 9x9 Value range 1-60. Max of 2 exits
 
 All boards have 1 start
 

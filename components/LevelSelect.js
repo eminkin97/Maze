@@ -8,11 +8,13 @@ export default class LevelSelect extends React.Component {
   constructor(props) {
 	super(props)
 	let title = this.props.navigation.getParam('title', 'SET DEFAULT VALUE LATER')
-	let dir = this.props.navigation.getParam('dir', 0)
+	let dir = this.props.navigation.getParam('dir', 'SET DEFAULT LATER')
+	let color = this.props.navigation.getParam('color', 'SET DEFAULT LATER')
 
 	this.state = {
 		title: title,
-		dir: dir
+		dir: dir,
+		color: color
 	}
   }
   levelClick(level_num) {
@@ -20,7 +22,7 @@ export default class LevelSelect extends React.Component {
 	let level_data = LEVELS[this.state.dir]
 
 	const { navigate } = this.props.navigation;
-	navigate('Game', { levels: level_data, num: level_num, title: this.state.title, dir: this.state.dir })
+	navigate('Game', { levels: level_data, num: level_num, title: this.state.title, dir: this.state.dir, color: this.state.color })
 
   }
   render() {
@@ -32,7 +34,7 @@ export default class LevelSelect extends React.Component {
 	levelList.push(<TouchableHighlight
 			key={i}
 			onPress={() => this.levelClick(i)}
-			style={styles.level_box}>
+			style={[styles.level_box, {backgroundColor: this.state.color}]}>
 				<Text style={styles.text}>{i}</Text>
 			</TouchableHighlight>)
     }
@@ -61,7 +63,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly'
   },
   level_box: {
-    backgroundColor: '#ff6600',
     flex: 0,
     height: 80,
     width: 80,

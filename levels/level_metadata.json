@@ -5,6 +5,13 @@
 			"id": "orange1",
 			"dir": "orange1",
 			"color": "orange"
+		},
+		{
+			"title": "Blue 1",
+			"id": "blue1",
+			"dir": "blue1",
+			"color": "blue"
 		}
+
 	]
 }

@@ -13,6 +13,7 @@ export default class GameScreen extends React.Component {
 	super(props)
 	levels = this.props.navigation.getParam('levels', 'SET DEFAULT VALUE LATER')
 	num = this.props.navigation.getParam('num', 0)
+	color = this.props.navigation.getParam('color', 'orange')
 	
 	for (let i = 0; i < levels.length; i++) {
 		if (levels[i].num == num) {
@@ -23,7 +24,8 @@ export default class GameScreen extends React.Component {
 	this.state = {
 		movesLeft: data.total_moves,
 		end_message_visible: false,
-		level_num: num
+		level_num: num,
+		color: color
 	}
   }
   closeModal() {
@@ -54,7 +56,7 @@ export default class GameScreen extends React.Component {
 	this.setState({
 		end_message_visible: false
 	});
-	this.props.navigation.push('Game', { levels: levels, num: this.state.level_num + 1});
+	this.props.navigation.push('Game', { levels: levels, num: this.state.level_num + 1, color: this.state.color});
   }
   backToLevelSelect() {
 	// goes back to level select screen
@@ -62,7 +64,7 @@ export default class GameScreen extends React.Component {
 	let dir = this.props.navigation.getParam('dir', 'SET DEFAULT VALUE LATER')
 
 	const { navigate } = this.props.navigation;
-	navigate('Levels', { title: title, dir: dir })
+	navigate('Levels', { title: title, dir: dir, color: this.state.color })
   }
   onPressSquare(value, isEnd) {
 	// when square is pressed decrease the amount of moves left by the value of the square
@@ -106,6 +108,7 @@ export default class GameScreen extends React.Component {
 	<Board numsquares={data.numsquares}
 		squares={data.squares}
 		movesLeft={this.state.movesLeft}
+		color={this.state.color}
 		ref={(c) => board = c}
 		onPressSquare={this.onPressSquare.bind(this)}/>
 

@@ -4,9 +4,9 @@ import { StyleSheet, Text, View, ScrollView, TouchableHighlight } from 'react-na
 var level_meta_data = require('../levels/level_metadata.json')
 
 export default class StageSelect extends React.Component {
-  stagePress(title, dir) {
+  stagePress(title, dir, color) {
 	const { navigate } = this.props.navigation;
-	navigate('Levels', { title: title, dir: dir })
+	navigate('Levels', { title: title, dir: dir, color: color })
 
   }
   render() {
@@ -15,8 +15,7 @@ export default class StageSelect extends React.Component {
 		{
 			level_meta_data.maps.map(stage =>	
 				<TouchableHighlight style={[styles.stage_blocks, { backgroundColor: stage.color }]}
-					key={1}
-					onPress={() => this.stagePress(stage.title, stage.dir)}>
+					onPress={() => this.stagePress(stage.title, stage.dir, stage.color)}>
 					<Text style={styles.stage_text}>{ stage.title }</Text>
 				</TouchableHighlight>
 			)
