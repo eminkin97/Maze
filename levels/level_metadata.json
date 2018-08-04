@@ -1,9 +1,10 @@
 {
 	"maps": [
 		{
-			"title": "orange1",
-			"id": 1,
-			"dir": "orange1"
+			"title": "Orange 1",
+			"id": "orange1",
+			"dir": "orange1",
+			"color": "orange"
 		}
 	]
 }

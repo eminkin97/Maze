@@ -22,14 +22,30 @@ export default class StageSelect extends React.Component {
 	navigate('Levels', { title: title, dir: dir })
 
   }
+  getBackgroundColor(key) {
+	// returns the background color for a stage
+	for (let i = 0; i < level_meta_data.maps.length; i++) {
+		if (level_meta_data.maps[i].id === key) {
+			return level_meta_data.maps[i].color;
+		}
+	}
+  }
+  getTitle(key) {
+	// returns the title for a stage
+	for (let i = 0; i < level_meta_data.maps.length; i++) {
+		if (level_meta_data.maps[i].id === key) {
+			return level_meta_data.maps[i].title;
+		}
+	}
+  }
   render() {
     return (
 	<ScrollView directionalLockEnabled={false}>
 		
-		<TouchableHighlight style={[styles.stage_blocks, styles.orange]}
+		<TouchableHighlight style={[styles.stage_blocks, { backgroundColor: this.getBackgroundColor("orange1") }]}
 			key={1}
-			onPress={() => this.stagePress(1)}>
-			<Text>Meow</Text>
+			onPress={() => this.stagePress("orange1")}>
+			<Text style={styles.stage_text}>{ this.getTitle("orange1") }</Text>
 		</TouchableHighlight>
 	</ScrollView>
     );
@@ -38,10 +54,14 @@ export default class StageSelect extends React.Component {
 
 const styles = StyleSheet.create({
 	stage_blocks: {
-		width: 300,
-		height: 300
+		width: 100,
+		height: 100,
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center'
 	},
-	orange: {
-		backgroundColor: 'orange'
+	stage_text: {
+		fontWeight: 'bold',
+		fontSize: 20
 	}
 });
