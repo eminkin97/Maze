@@ -433,7 +433,66 @@ const styles = StyleSheet.create({
   unpressed_val_19_red: {
 	backgroundColor: '#2C0000'
   },
-
+  unpressed_val_0_brown: {
+	backgroundColor: '#9D7752'
+  },
+  unpressed_val_1_brown: {
+	backgroundColor: '#8F6337'
+  },
+  unpressed_val_2_brown: {
+	backgroundColor: '#7A542D'
+  },
+  unpressed_val_3_brown: {
+	backgroundColor: '#704923'
+  },
+  unpressed_val_4_brown: {
+	backgroundColor: '#6C441C'
+  },
+  unpressed_val_5_brown: {
+	backgroundColor: '#704419'
+  },
+  unpressed_val_6_brown: {
+	backgroundColor: '#6E4215'
+  },
+  unpressed_val_7_brown: {
+	backgroundColor: '#683D11'
+  },
+  unpressed_val_8_brown: {
+	backgroundColor: '#62380D'
+  },
+  unpressed_val_9_brown: {
+	backgroundColor: '#5B330A'
+  },
+  unpressed_val_10_brown: {
+	backgroundColor: '#583008'
+  },
+  unpressed_val_11_brown: {
+	backgroundColor: '#502B06'
+  },
+  unpressed_val_12_brown: {
+	backgroundColor: '#4C2804'
+  },
+  unpressed_val_13_brown: {
+	backgroundColor: '#492603'
+  },
+  unpressed_val_14_brown: {
+	backgroundColor: '#402101'
+  },
+  unpressed_val_15_brown: {
+	backgroundColor: '#371C00'
+  },
+  unpressed_val_16_brown: {
+	backgroundColor: '#2C1600'
+  },
+  unpressed_val_17_brown: {
+	backgroundColor: '#2C1600'
+  },
+  unpressed_val_18_brown: {
+	backgroundColor: '#2C1600'
+  },
+  unpressed_val_19_brown: {
+	backgroundColor: '#2C1600'
+  },
 
   pressed: {
     backgroundColor: 'yellow'
