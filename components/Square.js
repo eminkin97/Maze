@@ -493,6 +493,66 @@ const styles = StyleSheet.create({
   unpressed_val_19_brown: {
 	backgroundColor: '#2C1600'
   },
+  unpressed_val_0_aqua: {
+	backgroundColor: '#90C4C4'
+  },
+  unpressed_val_1_aqua: {
+	backgroundColor: '#8DC8C8'
+  },
+  unpressed_val_2_aqua: {
+	backgroundColor: '#7DC8C8'
+  },
+  unpressed_val_3_aqua: {
+	backgroundColor: '#64CDCD'
+  },
+  unpressed_val_4_aqua: {
+	backgroundColor: '#55D2D2'
+  },
+  unpressed_val_5_aqua: {
+	backgroundColor: '#3FD3D3'
+  },
+  unpressed_val_6_aqua: {
+	backgroundColor: '#2FDEDE'
+  },
+  unpressed_val_7_aqua: {
+	backgroundColor: '#1FE4E4'
+  },
+  unpressed_val_8_aqua: {
+	backgroundColor: '#22EBEB'
+  },
+  unpressed_val_9_aqua: {
+	backgroundColor: '#10F3F3'
+  },
+  unpressed_val_10_aqua: {
+	backgroundColor: '#04E0E0'
+  },
+  unpressed_val_11_aqua: {
+	backgroundColor: '#05C6C6'
+  },
+  unpressed_val_12_aqua: {
+	backgroundColor: '#0BACAC'
+  },
+  unpressed_val_13_aqua: {
+	backgroundColor: '#0A9393'
+  },
+  unpressed_val_14_aqua: {
+	backgroundColor: '#086D6D'
+  },
+  unpressed_val_15_aqua: {
+	backgroundColor: '#056565'
+  },
+  unpressed_val_16_aqua: {
+	backgroundColor: '#025959'
+  },
+  unpressed_val_17_aqua: {
+	backgroundColor: '#004141'
+  },
+  unpressed_val_18_aqua: {
+	backgroundColor: '#002D2D'
+  },
+  unpressed_val_19_aqua: {
+	backgroundColor: '#002D2D'
+  },
 
   pressed: {
     backgroundColor: 'yellow'
