@@ -253,6 +253,66 @@ const styles = StyleSheet.create({
   unpressed_val_19_blue: {
     backgroundColor: '#050779'
   },
+  unpressed_val_0_purple: {
+	backgroundColor: '#A13EA1'
+  },
+  unpressed_val_1_purple: {
+	backgroundColor: '#963596'
+  },
+  unpressed_val_2_purple: {
+	backgroundColor: '#8F2D8F'
+  },
+  unpressed_val_3_purple: {
+	backgroundColor: '#862786'
+  },
+  unpressed_val_4_purple: {
+	backgroundColor: '#752375'
+  },
+  unpressed_val_5_purple: {
+	backgroundColor: '#6F1F6F'
+  },
+  unpressed_val_6_purple: {
+	backgroundColor: '#691B69'
+  },
+  unpressed_val_7_purple: {
+	backgroundColor: '#5C145C'
+  },
+  unpressed_val_8_purple: {
+	backgroundColor: '#4F104F'
+  },
+  unpressed_val_9_purple: {
+	backgroundColor: '#4D0E4D'
+  },
+  unpressed_val_10_purple: {
+	backgroundColor: '#460B46'
+  },
+  unpressed_val_11_purple: {
+	backgroundColor: '#470A47'
+  },
+  unpressed_val_12_purple: {
+	backgroundColor: '#440844'
+  },
+  unpressed_val_13_purple: {
+	backgroundColor: '#3C053C'
+  },
+  unpressed_val_14_purple: {
+	backgroundColor: '#340334'
+  },
+  unpressed_val_15_purple: {
+	backgroundColor: '#2B022B'
+  },
+  unpressed_val_16_purple: {
+	backgroundColor: '#270027'
+  },
+  unpressed_val_17_purple: {
+	backgroundColor: '#270027'
+  },
+  unpressed_val_18_purple: {
+	backgroundColor: '#270027'
+  },
+  unpressed_val_19_purple: {
+	backgroundColor: '#270027'
+  },
 
   pressed: {
     backgroundColor: 'yellow'

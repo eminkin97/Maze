@@ -11,6 +11,12 @@
 			"id": "blue1",
 			"dir": "blue1",
 			"color": "blue"
+		},
+		{
+			"title": "Purple 1",
+			"id": "purple1",
+			"dir": "purple1",
+			"color": "purple"
 		}
 
 	]
