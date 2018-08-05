@@ -25,6 +25,11 @@ export default class Board extends React.Component {
     // this function checks to see if the square pressed has neighbors that have been pressed
     // i.e. is it a valid press
 
+    //check to see if square is already pressed
+    if (this.state.pressed_squares_id.indexOf(id) != -1) {
+	return false
+    }
+
     // startSquare is exception, check if it's startSquare and append to pressed squares array if it is
     if (isStartSquare) {
 	this.setState({pressed_squares_id: this.state.pressed_squares_id.concat(id)})
