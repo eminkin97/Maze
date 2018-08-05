@@ -373,6 +373,67 @@ const styles = StyleSheet.create({
   unpressed_val_19_green: {
 	backgroundColor: '#012701'
   },
+  unpressed_val_0_red: {
+	backgroundColor: '#D25050'
+  },
+  unpressed_val_1_red: {
+	backgroundColor: '#D43E3E'
+  },
+  unpressed_val_2_red: {
+	backgroundColor: '#D52E2E'
+  },
+  unpressed_val_3_red: {
+	backgroundColor: '#D22222'
+  },
+  unpressed_val_4_red: {
+	backgroundColor: '#DB1919'
+  },
+  unpressed_val_5_red: {
+	backgroundColor: '#C10F0F'
+  },
+  unpressed_val_6_red: {
+	backgroundColor: '#BB0A0A'
+  },
+  unpressed_val_7_red: {
+	backgroundColor: '#A90404'
+  },
+  unpressed_val_8_red: {
+	backgroundColor: '#920606'
+  },
+  unpressed_val_9_red: {
+	backgroundColor: '#840F0F'
+  },
+  unpressed_val_10_red: {
+	backgroundColor: '#6E0C0C'
+  },
+  unpressed_val_11_red: {
+	backgroundColor: '#5D0D0D'
+  },
+  unpressed_val_12_red: {
+	backgroundColor: '#520909'
+  },
+  unpressed_val_13_red: {
+	backgroundColor: '#6A0606'
+  },
+  unpressed_val_14_red: {
+	backgroundColor: '#5E0101'
+  },
+  unpressed_val_15_red: {
+	backgroundColor: '#500101'
+  },
+  unpressed_val_16_red: {
+	backgroundColor: '#400101'
+  },
+  unpressed_val_17_red: {
+	backgroundColor: '#360101'
+  },
+  unpressed_val_18_red: {
+	backgroundColor: '#2C0000'
+  },
+  unpressed_val_19_red: {
+	backgroundColor: '#2C0000'
+  },
+
 
   pressed: {
     backgroundColor: 'yellow'
