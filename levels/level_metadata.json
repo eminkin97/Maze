@@ -1,40 +1,53 @@
 {
 	"maps": [
 		{
+			"num": 1,
 			"title": "Orange 1",
 			"id": "orange1",
 			"dir": "orange1",
 			"color": "orange"
 		},
 		{
+			"num": 2,
 			"title": "Blue 1",
 			"id": "blue1",
 			"dir": "blue1",
 			"color": "blue"
 		},
 		{
+			"num": 3,
 			"title": "Purple 1",
 			"id": "purple1",
 			"dir": "purple1",
 			"color": "purple"
 		},
 		{
+			"num": 4,
 			"title": "Green 1",
 			"id": "green1",
 			"dir": "green1",
 			"color": "green"
 		},
 		{
+			"num": 5,
 			"title": "Red 1",
 			"id": "red1",
 			"dir": "red1",
 			"color": "red"
 		},
 		{
+			"num": 6,
 			"title": "Brown 1",
 			"id": "brown1",
 			"dir": "brown1",
 			"color": "brown"
+		},
+		{
+			"num": 7,
+			"title": "Aqua 1",
+			"id": "aqua1",
+			"dir": "aqua1",
+			"color": "aqua"
 		}
 
 	]

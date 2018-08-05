@@ -90,7 +90,7 @@ def control(num_squares, max_value, max_num_end_squares):
 
 	i = 1
 	while (i <= 50):
-		generateJsonFile(num_squares, max_value, "brown1/level" + str(i) + ".json", max_num_end_squares)
+		generateJsonFile(num_squares, max_value, "aqua1/level" + str(i) + ".json", max_num_end_squares)
 		i = i + 1
 	
 if __name__ == "__main__":
