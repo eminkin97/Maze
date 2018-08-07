@@ -48,7 +48,55 @@
 			"id": "aqua1",
 			"dir": "aqua1",
 			"color": "aqua"
+		},
+		{
+			"num": 8,
+			"title": "Orange 2",
+			"id": "orange2",
+			"dir": "orange2",
+			"color": "orange"
+		},
+		{
+			"num": 9,
+			"title": "Blue 2",
+			"id": "blue2",
+			"dir": "blue2",
+			"color": "blue"
+		},
+		{
+			"num": 10,
+			"title": "Purple 2",
+			"id": "purple2",
+			"dir": "purple2",
+			"color": "purple"
+		},
+		{
+			"num": 11,
+			"title": "Green 2",
+			"id": "green2",
+			"dir": "green2",
+			"color": "green"
+		},
+		{
+			"num": 12,
+			"title": "Red 2",
+			"id": "red2",
+			"dir": "red2",
+			"color": "red"
+		},
+		{
+			"num": 13,
+			"title": "Brown 2",
+			"id": "brown2",
+			"dir": "brown2",
+			"color": "brown"
+		},
+		{
+			"num": 14,
+			"title": "Aqua 2",
+			"id": "aqua2",
+			"dir": "aqua2",
+			"color": "aqua"
 		}
-
 	]
 }
